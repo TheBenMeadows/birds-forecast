@@ -2,5 +2,12 @@
   "name": "birds-forecast",
   "private": true,
   "type": "module",
-  "scripts": { "validate": "node scripts/validate.mjs" }
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "validate:mutate": "node scripts/validate.mjs --mutate"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
 }
