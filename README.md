@@ -46,6 +46,20 @@ Every compared value comes from the chain. birds.app's index (an undocumented en
 
 On 2026-10-31: 400 of 400 matched across all five sanctuaries (blocks 26,235,918 to 26,307,101), `epochSeed()` matched, and `--mutate` gave 0 of 400.
 
+## Live check (2026-11-01)
+
+A collecting bot using this forecast ([birds-observer](https://github.com/TheBenMeadows/birds-observer)) made 5 observations from a fresh wallet, 0xe4A5540eb60242DFBB2c9b3B2fd6C07946FB2072. Before each one it forecast the whole layout the observation would produce; in the block each one landed, all five sanctuaries matched the forecast (5 of 5).
+
+| Block | Sanctuary | Bird | Gas | Transaction |
+|---|---|---|---|---|
+| 26320583 | 1 | 39 | 143,063 | 0x5cb0b85b38e3313a8a8cfbc7ac20ceb9064cce2957b07a95b3bd1221396e8000 |
+| 26320593 | 1 | 6 | 125,963 | 0xd7af4d891ef5097daad15ab98aaeb9f77437687b01d307ff877deb3c4dab27a4 |
+| 26320597 | 1 | 66 | 125,963 | 0x5300cf3f63290cdedf2e481f22c88c8324e3c0e0059ae0d125f55af7cd7b7622 |
+| 26320603 | 1 | 43 | 125,963 | 0x5ef4a524ea5cbb400173e27a5e1a0ae686d30f4aec6fb4f2aef90a2244bc28cd |
+| 26320605 | 1 | 38 | 125,963 | 0x4e3524c58258c1e75adac3dd58f2ffe026ddbf3173467c14857822e6b0917e01 |
+
+16 bundles were sent, each offered for one block; 11 missed and cost nothing. The wallet ended with exactly one of each of the five pairs, and the test spent 0.00243 ETH.
+
 ## Simulations
 
 ```
