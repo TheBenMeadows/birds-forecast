@@ -9,8 +9,9 @@
 // mod 100 the offset (28 x 100 = 2,800 layouts). Sanctuary s is slot 29 + s.
 // The preimage is packed as 32 + 20 + 8 bytes (bytes32, address, uint64).
 //
-// These are the seed's birds. The contract can differ: a holder can move or shoo a
-// bird by hand within an epoch (replacing it or leaving the sanctuary empty), a
+// These are the seed's birds. The contract can differ: within an epoch, bird home
+// collectors and sanctuary holders can move birds by hand (replacing the bird or
+// leaving the sanctuary empty), a
 // disabled sanctuary is always empty, and after 1,000,000 observations the birds
 // depart for good. Pass only enabled sanctuary ids.
 import { keccak256 } from "./keccak.js";

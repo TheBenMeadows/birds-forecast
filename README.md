@@ -40,7 +40,7 @@ node scripts/validate.mjs            # the 400 most recent observations
 node scripts/validate.mjs --mutate   # the same rows with the slot mapping shifted by one
 ```
 
-For each observation, the contract's `ObservationRecorded` event records `nextOccupant`, the bird the migration put in the observed sanctuary. The script recomputes the seed from the containing block's `parentHash` and `observedEpoch + 1` and compares. A fresh epoch starts from the seed alone, so holder moves from the epoch before cannot interfere. It then checks the live contract: the stored `epochSeed()` must equal the seed rebuilt from the latest migration's block, and it reports how many of the five sanctuaries still hold the seed's bird.
+For each observation, the contract's `ObservationRecorded` event records `nextOccupant`, the bird the migration put in the observed sanctuary. The script recomputes the seed from the containing block's `parentHash` and `observedEpoch + 1` and compares. A fresh epoch starts from the seed alone, so moves by hand from the epoch before cannot interfere. It then checks the live contract: the stored `epochSeed()` must equal the seed rebuilt from the latest migration's block, and it reports how many of the five sanctuaries still hold the seed's bird.
 
 Every compared value comes from the chain. birds.app's index (an undocumented endpoint that may change) is used only to find which blocks hold observations. Blocks within 64 of the head are skipped. Set `RPC_URL` to use another node.
 
@@ -69,7 +69,7 @@ Uniform layouts give 939.5 observations without the forecast. The 90th percentil
 
 ## Limits
 
-- Holder overrides (`shooBird`, moves by hand) are not modeled. Within an epoch they can replace the predicted bird or leave the sanctuary empty.
+- Moves by hand are not modeled. Bird home collectors can send a bird to a sanctuary, recall it or shoo it home (`sendBirdToSanctuary`, `recallBird`, `shooBirdHome`), and sanctuary holders can call a bird in or shoo it out (`callBird`, `shooBird`). Within an epoch either can replace the predicted bird or leave a sanctuary empty.
 - `occupants` and `forecast` return a bird for any sanctuary id you pass. Pass only enabled sanctuaries (5 today). A disabled one is always empty on chain.
 - After 1,000,000 observations the birds depart for good and every sanctuary is empty. There had been 20,292 on 2026-10-31.
 - Both contracts are upgradeable (`upgradesFrozen()` was false on 2026-10-31), so the formula holds until their owner changes it.
